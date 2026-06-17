@@ -127,4 +127,29 @@ public class GradeCalculator {
 
         return lowest;
     }
+
+    double computeClassMean(Student[] students, int activeCount) {
+        if (students == null || activeCount == 0) {
+            return 0.0;
+        }
+
+        double totalSum = 0.0;
+
+        for (int i = 1; i < activeCount; i++) {
+            Student current = students[i];
+
+            double currentScore = computeRawGrade(
+                    current.getLabPerformance(),
+                    current.getClassParticipation(),
+                    current.getTeachEval(),
+                    current.getPracExam(),
+                    current.getProject()
+            );
+
+            totalSum += currentScore;
+
+        }
+
+        return totalSum/activeCount;
+    }
 }
