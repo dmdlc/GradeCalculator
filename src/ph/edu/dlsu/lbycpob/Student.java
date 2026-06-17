@@ -11,10 +11,10 @@ public class Student {
     Student(String name, double labPerformance, double classParticipation, double teachEval,
             double pracExam, double project){
         this.name = name;
-        this.labPerformance = labPerformance;
-        this.classParticipation = classParticipation;
-        this.teachEval;
-        this.pracExam;
+        setLabPerformance(labPerformance);
+        setClassParticipation(classParticipation);
+        setTeachEval(teachEval);
+        setPracExam(pracExam);
     }
 
     double getLabPerformance(){
