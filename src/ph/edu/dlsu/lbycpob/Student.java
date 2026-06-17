@@ -15,6 +15,11 @@ public class Student {
         setClassParticipation(classParticipation);
         setTeachEval(teachEval);
         setPracExam(pracExam);
+        setProject(project);
+    }
+
+    String getName(){
+        return name;
     }
 
     double getLabPerformance(){

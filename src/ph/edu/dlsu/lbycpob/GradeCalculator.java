@@ -135,7 +135,7 @@ public class GradeCalculator {
 
         double totalSum = 0.0;
 
-        for (int i = 1; i < activeCount; i++) {
+        for (int i = 0; i < activeCount; i++) {
             Student current = students[i];
 
             double currentScore = computeRawGrade(
