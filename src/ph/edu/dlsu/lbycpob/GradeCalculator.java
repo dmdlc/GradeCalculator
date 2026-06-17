@@ -58,6 +58,73 @@ public class GradeCalculator {
             case "1.5" -> "Fair";
             case "1.0" -> "Poor/Passed";
             default -> "Failed";
+        };
+    }
+
+    double computeHighest(Student[] students, int activeCount) {
+        if (students == null || activeCount == 0) {
+            return 0.0;
         }
+
+        Student first = students[0];
+        double highest = computeRawGrade(
+                first.getLabPerformance(),
+                first.getClassParticipation(),
+                first.getTeachEval(),
+                first.getPracExam(),
+                first.getProject()
+        );
+
+        for (int i = 1; i < activeCount; i++){
+            Student current = students[i];
+
+            double currentScore = computeRawGrade(
+                    current.getLabPerformance(),
+                    current.getClassParticipation(),
+                    current.getTeachEval(),
+                    current.getPracExam(),
+                    current.getProject()
+            );
+
+            if (currentScore > highest){
+                highest = currentScore;
+            }
+        }
+
+        return highest;
+    }
+
+    double computeLowest(Student[] students, int activeCount) {
+        if (students == null || activeCount == 0){
+            return 0;
+        }
+
+        Student first = students[0];
+        double lowest = computeRawGrade(
+                first.getLabPerformance(),
+                first.getClassParticipation(),
+                first.getTeachEval(),
+                first.getPracExam(),
+                first.getProject()
+        );
+
+        for (int i = 1; i < activeCount; i++){
+            Student current = students[i];
+
+            double currentScore = computeRawGrade(
+                    current.getLabPerformance(),
+                    current.getClassParticipation(),
+                    current.getTeachEval(),
+                    current.getPracExam(),
+                    current.getProject()
+            );
+
+            if (currentScore < lowest){
+                currentScore = lowest;
+            }
+
+        }
+
+        return lowest;
     }
 }
